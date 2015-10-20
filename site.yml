@@ -1,0 +1,5 @@
+- hosts: all
+  user: specuser
+  sudo: yes
+  roles:
+  - common

@@ -1,0 +1,5 @@
+#!/bin/bash
+groupadd -g 2000 spec
+useradd -g spec -u 2000 specuser
+passwd specuser
+#visudo
