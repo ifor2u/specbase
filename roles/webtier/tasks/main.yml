@@ -1,0 +1,9 @@
+- file: path=/usr/local/wwwtier owner=root group=root mode=0644 state=directory
+
+- group: name=was gid=20000
+- group: name=bea gid=20001
+- group: name=jboss gid=20002
+
+- user: name=wasadmin uid=20000 group=was
+- user: name=bea uid=20001 group=bea
+- user: name=jboss uid=20002 group=jboss

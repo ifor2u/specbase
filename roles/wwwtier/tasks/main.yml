@@ -1,0 +1,5 @@
+- file: path=/usr/local/wwwtier owner=root group=root mode=0644 state=directory
+
+- group: name=nginx gid=30000
+
+- user: name=nginx uid=30000 group=nginx

@@ -1,0 +1,7 @@
+#!/bin/bash
+role=$1
+mkdir roles/${role}
+mkdir roles/${role}/tasks
+mkdir roles/${role}/files
+mkdir roles/${role}/templates
+touch roles/${role}/tasks/main.yml

@@ -1,0 +1,6 @@
+- name: user {{ item.name }}
+  user: name={{ item.name }}
+  with_items:
+  - { name: 'sybase' }
+  - { name: 'oracle' }
+  

@@ -1,0 +1,3 @@
+ntp_servers: ["dbserver1-prod","dbserver2-prod"]
+log_server: "dbserver-prod"
+nfs_server: "dbserver-prod"

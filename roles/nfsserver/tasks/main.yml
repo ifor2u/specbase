@@ -1,0 +1,3 @@
+- copy: src=etc/exports dest=/etc/exports
+
+- file: path=/export owner=root group=root mode=0644 state=directory

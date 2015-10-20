@@ -1,5 +1,3 @@
-- hosts: all
-  user: specuser
-  sudo: yes
-  roles:
-  - common
+- include: dbservers.yml
+- include: webservers.yml
+- include: wwwservers.yml

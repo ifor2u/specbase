@@ -1,0 +1,5 @@
+- copy: src=etc/auto.master dest=/etc/auto.master owner=root group=root mode=0644
+
+- template: src=etc/auto.nfs dest=/etc/auto.nfs owner=root group=root mode=0644
+
+- service: name=autofs enabled=on

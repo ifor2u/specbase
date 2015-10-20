@@ -1,0 +1,19 @@
+- template: src=etc/ntp/step-tickers.j2 dest=/etc/ntp/step-tickers owner=root group=root mode=0644
+- template: src=etc/rsyslog.conf.j2 dest=/etc/rsyslog.conf owner=root group=root mode=0644
+
+- copy: src=etc/selinux/config dest=/etc/selinux/config owner=root group=root mode=0644
+- copy: src=etc/ssh/ssh_config dest=/etc/ssh/ssh_config owner=root group=root mode=0644
+- copy: src=etc/ssh/sshd_config dest=/etc/ssh/sshd_config owner=root group=root mode=0600
+
+- file: path=/var/log/messages owner=root group=root mode=0644
+- file: path=/usr/local/common owner=root group=root mode=0644 state=directory
+
+- group: name=jenkins gid=497
+- group: name=scm gid=498
+- group: name=cm gid=505
+
+- user: name=jenkins uid=497 group=jenkins
+- user: name=git uid=498 group=scm
+- user: name=ansible uid=505 group=cm
+- user: name=chef uid=506 group=cm
+- user: name=puppet uid=507 group=cm

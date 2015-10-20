@@ -1,0 +1,10 @@
+- hosts: dbservers
+  gather_facts: no
+  vars_files:
+     - 'vars/{{ stage }}.yml'
+     - 'vars/{{ stage }}/dbservers.yml'
+     - 'vars/{{ stage }}/${hostname}.yml'
+  roles:
+     - common
+     - dbtier
+     - nfsserver

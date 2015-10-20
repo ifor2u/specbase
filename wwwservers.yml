@@ -1,0 +1,9 @@
+- hosts: wwwservers
+  gather_facts: no
+  vars_files:
+    - 'vars/{{ stage }}.yml'
+    - 'vars/{{ stage }}/wwwservers.yml'
+  roles:
+    - common
+    - wwwtier
+    - nfsclient

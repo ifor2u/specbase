@@ -1,0 +1,2 @@
+ntp_servers: [ "ntpserver1-dev", "ntpserver2-dev" ]
+log_server: [ "logserver1-dev" ]

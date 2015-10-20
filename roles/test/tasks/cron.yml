@@ -1,0 +1,4 @@
+- name: cron {{ item.name }} 
+  cron: name="{{ item.name }}" hour={{ item.hour }} minute={{ item.minute }} job="{{ item.job }}" state={{ item.state }}
+  with_items:
+  - { name: 'check dir', hour: '5,2', minute: '0', job: 'ls', state: 'absent' }

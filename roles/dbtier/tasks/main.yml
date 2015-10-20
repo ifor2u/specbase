@@ -1,0 +1,9 @@
+- copy: src=etc/sysconfig/rsyslog dest=/etc/sysconfig/rsyslog owner=root group=root mode=0644
+
+- file: path=/usr/local/dbtier owner=root group=root mode=0644 state=directory
+
+- group: name=dba gid=100000
+- group: name=oinstall gid=100001
+- group: name=oper gid=100002
+
+- user: name=oracle uid=10000 group=dba

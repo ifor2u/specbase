@@ -1,0 +1,4 @@
+#!/bin/env python
+for line in open('/etc/group', 'r'):
+  tokens = line[:-1].split(':')
+  print "- group: name=%s gid=%s" % (tokens[0], tokens[2])

@@ -1,0 +1,7 @@
+- name: chkconfig {{ item.name }}
+  chkconfig: name={{ item.name }} runlevel={{ item.runlevel }}
+  with_items:
+    - { name: 'sshd', runlevel: '345' }
+    - { name: 'sysstat', runlevel: '345' }
+    - { name: 'rsyslog', runlevel: '345' }
+    - { name: 'ntpd', runlevel: '345' }

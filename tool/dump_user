@@ -1,0 +1,4 @@
+#!/bin/env python
+for line in open('/etc/passwd'):
+  tokens = line[:-1].split(':')
+  print "- user: name=%s uid=%s gid=%s comment=\"%s\" home=%s shell=%s" % (tokens[0], tokens[2], tokens[3], tokens[4], tokens[5], tokens[6])

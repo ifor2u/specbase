@@ -1,0 +1,53 @@
+#!/usr/bin/python
+
+def chkconfig():
+  print ""
+
+def check_state(out, runlevel, state):
+  tokens = out.split("\t")
+  rc_state = [
+    tokens[1].split(":")[1],
+    tokens[2].split(":")[1],
+    tokens[3].split(":")[1],
+    tokens[4].split(":")[1],
+    tokens[5].split(":")[1],
+    tokens[6].split(":")[1],
+    tokens[7].split(":")[1],
+  ]
+
+  for level in runlevel:
+    if rc_state[int(level)] != state:
+      return False
+  return True
+
+def main():
+  module = AnsibleModule(
+    argument_spec=dict(
+      name=dict(default=None, required=True, type='str'),
+      runlevel=dict(default="345", required=False, type='str'),
+      state=dict(default="on", required=False, type='str'),
+    ),
+    supports_check_mode=True,
+  )
+  chkconfig_path = module.get_bin_path('chkconfig', required=True)
+  name = module.params['name']
+  state = module.params['state']
+  runlevel = module.params['runlevel']
+
+  (rc, out, err) = module.run_command('%s --list %s' % ( chkconfig_path, name), check_rc=True)
+
+  import simplejson as json
+
+  result = check_state(out, runlevel, state)
+
+  if result == True:
+    module.exit_json(changed=False)
+
+  if (not module.check_mode) and (not result):
+
+    (rc, out, err) = module.run_command('%s --level %s %s %s' % ( chkconfig_path, runlevel, name, state), check_rc=True)
+
+  module.exit_json(changed=True)
+
+from ansible.module_utils.basic import *
+main()

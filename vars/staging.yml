@@ -1,0 +1,3 @@
+ntp_servers: ["dbserver1-dev","dbserver2-dev"]
+log_server: ["dbserver1-dev"]
+nfs_server: dbserver1-dev

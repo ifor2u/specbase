@@ -1,0 +1,2 @@
+ntp_servers: [ "ntpserver1-prod", "ntpserver2-prod" ]
+log_server: "logserver-prod"

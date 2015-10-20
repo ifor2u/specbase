@@ -1,0 +1,5 @@
+- name: gropu {{ item.name }}
+  group: name={{ item.name }} gid={{ item.gid }}
+  with_items:
+  - { name: 'dba', gid: '10000' }
+  - { name: 'app', gid: '10001' }
